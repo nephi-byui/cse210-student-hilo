@@ -1,13 +1,16 @@
 """
-The game package contains the classes for playing Hilo.
+CSE 210
+Team 02
+Hilo (Nephi's Attempt)
 """
 
 import random
 
 class PlayerClass():
-    def __init__(self):
+    """This class is used to create an object where the player's score and statistics are stored."""
+    def __init__(self,user_input_name):
         self.score = 300 # The player starts the game with 300 points
-        self.name = ""
+        self.name = user_input_name
         self.total_guesses = 0
         self.total_right = 0
         self.total_wrong = 0
@@ -16,6 +19,7 @@ class PlayerClass():
         self.total_points_lost = 0
 
     def right(self):
+        """Run this function when a player makes a correct guess."""
         self.score = self.score + 100
         self.total_points_earned = self.total_points_earned + 100
 
@@ -23,16 +27,31 @@ class PlayerClass():
         self.total_right = self.total_right + 1
 
     def wrong(self):
+        """Run this function when a player makes an incorrect guess."""
         self.score = self.score - 75
         self.total_points_lost = self.total_points_lost + 75
 
         self.total_guesses = self.total_guesses + 1
         self.total_wrong = self.total_wrong + 1
 
-    def print_score(self):
-        print(self.score)
+    def dump_stats(self):
+        """Displays various player statistics"""
+        print("="*64)
+        print(f"Statistics for {self.name}")
+        print("-"*64)
+        if self.total_guesses == 1: #singular
+            print(f"You made a total of {self.total_guesses} guess.")
+        else: #plural
+            print(f"You made a total of {self.total_guesses} guesses.")
+        print(f"Correct guesses: {self.total_right} ({self.total_right/self.total_guesses*100:.2f}%)")
+        print(f"Incorrect guesses: {self.total_wrong} ({self.total_wrong/self.total_guesses*100:.2f}%).")
+        print(f"You earned a total of {self.total_points_earned} points and lost a total of {self.total_points_lost} points.")
+        print(f"You achieved a final score of: {self.score}.")
+        print("="*64)
+        
 
 class CardPairClass():
+    """This class is used to create card pair objects"""
     def __init__(self):
 
         possible_values = [1,2,3,4,5,6,7,8,9,10,11,12,13]
@@ -48,16 +67,19 @@ class CardPairClass():
         self.second = second_number
 
 def main():
-
+    
+    print("Welcome to Hilo!")
     user_input_player_name = input("Hi, what's your name? ")
 
     # INITIAL SETUP
 
     # create an object Player of the class PlayerClass
-    Player = PlayerClass()
-    Player.name = user_input_player_name
+    Player = PlayerClass(user_input_player_name)
 
     print(f"Hi {Player.name}")
+    print(f"Let's play!")
+    print()
+    
 
     # Game Loop
     while True:
@@ -93,18 +115,21 @@ def main():
             else:
                 Player.wrong()
         
-        if Player.score >= 0:
-            print(f"Your new score is {Player.score}")
+        if Player.score > 0:
+            print(f"Your new score is {Player.score}.")
         else:
-            print(f"You are out of points: GAME OVER")
             Player.score = 0
+            print(f"Your new score is {Player.score}.")
+            print(f"GAME OVER")
 
-        # ask player if they want to play again
-        while True:
+        # while player score is greater than 0    
+        # keep asking player if they want to play again
+        while Player.score > 0:
             keep_playing = input("Keep playing? [y/n] ")
 
             if keep_playing.lower() in ["y", "n"]:
-                    break 
+                print() #blank line
+                break 
             else:
                 print("Invalid response")
                 continue
@@ -113,14 +138,11 @@ def main():
             continue
         else:
             break
-
-    #dump statistics
-    print(f"Thanks for playing, {Player.name}!")
+    
+    # dump statistics
+    Player.dump_stats()
     print()
-    print("STATISTICS")
-    print(f"You made a total of {Player.total_guesses} guesses.")
-    print(f"You got {Player.total_right} guesses right ({Player.total_right/Player.total_guesses*100:.2f}%) and {Player.total_wrong} guesses wrong ({Player.total_wrong/Player.total_guesses*100:.2f}%).")
-    print(f"You earned a total of {Player.total_points_earned} points and lost a total of {Player.total_points_lost}.")
-    print(f"Your final score was: {Player.score}")
+    print(f"Thanks for playing!")
 
-main()
+if __name__ == "__main__":
+    main()
