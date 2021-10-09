@@ -34,11 +34,11 @@ class PlayerClass():
         Args:
             self (PlayerClass): an instance of PlayerClass.
         """
-        self.score = self.score + 100
-        self.total_points_earned = self.total_points_earned + 100
-
         self.total_guesses = self.total_guesses + 1
         self.total_right = self.total_right + 1
+
+        self.score = self.score + 100
+        self.total_points_earned = self.total_points_earned + 100
 
         print("You guessed correctly. Good job! (+100 points)")
 
@@ -47,13 +47,24 @@ class PlayerClass():
         Args:
             self (PlayerClass): an instance of PlayerClass.
         """
-        self.score = self.score - 75
-        self.total_points_lost = self.total_points_lost + 75
-
         self.total_guesses = self.total_guesses + 1
         self.total_wrong = self.total_wrong + 1
 
-        print("You guessed wrong. Nice try though. (-75 points)")
+        if self.score > 75:
+            self.score = self.score - 75
+            self.total_points_lost = self.total_points_lost + 75
+            print("You guessed wrong. Nice try though. (-75 points)")
+
+        elif self.score <= 75:
+            score_left = self.score
+
+            self.score = self.score - score_left
+            self.total_points_lost = self.total_points_lost + score_left
+            print(f"You guessed wrong. You lose the last of your points! (-{score_left} points!")
+
+
+
+        
 
     def dump_stats(self):
         """Displays various player statistics.

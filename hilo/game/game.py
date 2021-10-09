@@ -74,7 +74,7 @@ class GameObject():
     def turn(self):
         """Starts the game loop to control sequence of play.
         Args:
-            self (GameObject): an instance of Game.
+            self (GameObject): an instance of GameObject.
         """
         # Draw a card pair to be used for this turn only
         self.Table.draw_pair()
@@ -109,7 +109,7 @@ class GameObject():
     def end_turn(self):
         """Execute after a player takes a turn.
         Args:
-            self (GameObject): an instance of Game.
+            self (GameObject): an instance of GameObject.
         """
         # report new score
         # game over if score is less than or equal to zero 
