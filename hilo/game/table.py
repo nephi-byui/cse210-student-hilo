@@ -1,6 +1,7 @@
-#Tianna DeSpain 
-#Attempt at HiLo Game for W04 Team Project
-#10/07/2021
+# Tianna DeSpain 
+# Nephi Malit
+# Alan Crisanto
+# Tatenda Felix Mukaro
 
 import random 
 
@@ -8,23 +9,34 @@ class TableClass():
     """This class holds the deck of cards and shuffling deck for play
     Its responsibility is to store the list of cards for the game.
     Attributes:
-        deck (LIST):    A list of the possible cards to be drawn
+        deck (LIST):        A list of the possible cards to be drawn
+        first_card (INT):   A number between 1 and 13
+        second_card (INT):  A number between 1 and 13
     """
     def __init__(self):
         """The class constructor.
-        
         Args:
             self (Table): an instance of Table.
         """
         #self.deck = list()
-        self.deck = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
+        #self.deck = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
         #random.shuffle(self.deck)
 
-    def draw_pair(self):
-        """This function picks two numbers from the deck"""
-        
-        # reshuffle the deck
+    def shuffle(self):
+        """This function restores the deck to its complete state
+        Args:
+            self (Table): an instance of Table.        
+        """
         self.deck = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
+
+    def draw_pair(self):
+        """This function picks two numbers from the deck
+        Args:
+            self (Table): an instance of Table.        
+        """
+        
+        # shuffle the deck before drawing
+        self.shuffle()
 
         # get the first card
         self.first_card = random.choice(self.deck)

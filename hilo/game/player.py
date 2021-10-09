@@ -1,3 +1,8 @@
+# Tianna DeSpain 
+# Nephi Malit
+# Alan Crisanto
+# Tatenda Felix Mukaro
+
 class PlayerClass():
     """This class is used to create an Player object,
     where the player's score and statistics are stored.
