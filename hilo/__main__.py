@@ -1,4 +1,4 @@
-from game.director import Game 
+from game.game import GameObject 
 
-game = Game() 
+game = GameObject() 
 game.game()
