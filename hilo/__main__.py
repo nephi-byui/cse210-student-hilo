@@ -1,4 +1,9 @@
-from game.director import Game 
+# Tianna DeSpain 
+# Nephi Malit
+# Alan Crisanto
+# Tatenda Felix Mukaro
 
-game = Game() 
+from game.game import GameObject 
+
+game = GameObject() 
 game.game()
