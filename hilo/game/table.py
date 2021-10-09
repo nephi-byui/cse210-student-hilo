@@ -16,7 +16,7 @@ class TableClass():
     def __init__(self):
         """The class constructor.
         Args:
-            self (Table): an instance of Table.
+            self (TableClass): an instance of TableClass.
         """
         #self.deck = list()
         #self.deck = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
@@ -25,14 +25,14 @@ class TableClass():
     def shuffle(self):
         """This function restores the deck to its complete state
         Args:
-            self (Table): an instance of Table.        
+            self (TableClass): an instance of TableClass.        
         """
         self.deck = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 
     def draw_pair(self):
         """This function picks two numbers from the deck
         Args:
-            self (Table): an instance of Table.        
+            self (TableClass): an instance of TableClass.        
         """
         
         # shuffle the deck before drawing
