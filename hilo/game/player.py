@@ -39,7 +39,6 @@ class PlayerClass():
 
         self.score = self.score + 100
         self.total_points_earned = self.total_points_earned + 100
-
         print("You guessed correctly. Good job! (+100 points)")
 
     def wrong_guess(self):
@@ -61,10 +60,6 @@ class PlayerClass():
             self.score = self.score - score_left
             self.total_points_lost = self.total_points_lost + score_left
             print(f"You guessed wrong. You lose the last of your points! (-{score_left} points!")
-
-
-
-        
 
     def dump_stats(self):
         """Displays various player statistics.
