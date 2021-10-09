@@ -6,8 +6,20 @@
 class PlayerClass():
     """This class is used to create an Player object,
     where the player's score and statistics are stored.
+    Attributes:
+        score:                  (INT) The Player's running score
+        name:                   (STR) The Player's name
+        total_guesses:          (INT) The number of guesses made this session
+        total_right:            (INT) The number of correct guesses
+        total_wrong:            (INT) The number of incorrect guesses
+        total_points_earned:    (INT) The gross total number of points earned from correct answers
+        total_points_lost:      (INT) The gross total number of points lost from incorrect answers 
     """
     def __init__(self):
+        """The class constructor.
+        Args:
+            self (PlayerClass): an instance of PlayerClass.
+        """
         self.score = 300 # The player starts the game with 300 points
         self.name = "Player"
         self.total_guesses = 0
@@ -28,7 +40,7 @@ class PlayerClass():
         self.total_guesses = self.total_guesses + 1
         self.total_right = self.total_right + 1
 
-        print("You guessed correctly. Good job!")
+        print("You guessed correctly. Good job! (+100 points)")
 
     def wrong_guess(self):
         """Run this function when a player makes an incorrect guess.
@@ -41,7 +53,7 @@ class PlayerClass():
         self.total_guesses = self.total_guesses + 1
         self.total_wrong = self.total_wrong + 1
 
-        print("You guessed wrong. Nice try though.")
+        print("You guessed wrong. Nice try though. (-75 points)")
 
     def dump_stats(self):
         """Displays various player statistics.

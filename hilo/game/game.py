@@ -19,7 +19,7 @@ class GameObject():
     def __init__(self):
         """The class constructor.
         Args:
-            self (Game): an instance of Game.
+            self (GameObject): an instance of Game.
         """
         self.keep_playing = "y"
 
@@ -33,7 +33,7 @@ class GameObject():
             the player's score reaches zero or;
             the player decides to end the game (self.keep_playing == "n")
         Args:
-            self (Game): an instance of Game.
+            self (GameObject): an instance of Game.
         """
         user_input_player_name = input("Hi, what's your name? ")
 
@@ -74,7 +74,7 @@ class GameObject():
     def turn(self):
         """Starts the game loop to control sequence of play.
         Args:
-            self (Game): an instance of Game.
+            self (GameObject): an instance of Game.
         """
         # Draw a card pair to be used for this turn only
         self.Table.draw_pair()
@@ -109,7 +109,7 @@ class GameObject():
     def end_turn(self):
         """Execute after a player takes a turn.
         Args:
-            self (Game): an instance of Game.
+            self (GameObject): an instance of Game.
         """
         # report new score
         # game over if score is less than or equal to zero 
