@@ -1,16 +1,19 @@
-#Tianna DeSpain 
-#Attempt at HiLo Game for W04 Team Project
-#10/07/2021
+# Tianna DeSpain 
+# Nephi Malit
+# Alan Crisanto
+# Tatenda Felix Mukaro
+
 from game.table import TableClass
 from game.player import PlayerClass
 
 class GameObject():
     """This class is responsible for starting the game and controlling the sequence of play.
-    
      Attributes:
         keep_playing (STR): "y" or "n", breaks game loop if "n"
-        table (OBJECT):  An instance of the class of objects known as Table.
-        player (OBJECT): An instance of the PlayerClass class
+        Table (OBJECT):  An instance of the class TableClass.
+        Player (OBJECT): An instance of the class PlayerClass
+    Args:
+        none
     """
     
     def __init__(self):
@@ -19,17 +22,19 @@ class GameObject():
             self (Game): an instance of Game.
         """
         self.keep_playing = "y"
-        self.table = TableClass()
+
+        # Create instances of TableClass and PlayerClass
+        self.Table = TableClass()
         self.Player = PlayerClass()
         
     def game(self):
-        """The main game loop. Keeps the game running until the player's score reaches zero or the player's cards
+        """The main game loop.
+        Keeps the game running until either:
+            the player's score reaches zero or;
+            the player decides to end the game (self.keep_playing == "n")
         Args:
             self (Game): an instance of Game.
         """
-
-        self.keep_playing = "y"
-
         user_input_player_name = input("Hi, what's your name? ")
 
         # create an object Player of the class PlayerClass
@@ -72,10 +77,10 @@ class GameObject():
             self (Game): an instance of Game.
         """
         # Draw a card pair to be used for this turn only
-        self.table.draw_pair()
+        self.Table.draw_pair()
 
         # Display the first card
-        print(f"The card is: {self.table.first_card}")
+        print(f"The card is: {self.Table.first_card}")
 
         # Take the player's guess
         while True:
@@ -87,16 +92,16 @@ class GameObject():
                 break
         
         #  Display the second card
-        print(f"The next card was: {self.table.second_card}")
+        print(f"The next card was: {self.Table.second_card}")
 
         if guess == "h":
-            if self.table.second_card > self.table.first_card:
+            if self.Table.second_card > self.Table.first_card:
                 self.Player.right_guess()
             else:
                 self.Player.wrong_guess()
 
         elif guess == "l":
-            if self.table.second_card < self.table.first_card:
+            if self.Table.second_card < self.Table.first_card:
                 self.Player.right_guess()
             else:
                 self.Player.wrong_guess()
