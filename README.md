@@ -35,7 +35,7 @@ root                    (project root folder)
 
 ## Authors
 ---
-Alan Crisanto - alanvcrisanto@gmail.com
-Tianna DeSpain - des17015@byui.edu
-Nephi Malit - byui@nephi.malit.me
-Tatenda Felix Mukaro - muk21002@byui.edu
+* Alan Crisanto - alanvcrisanto@gmail.com
+* Tianna DeSpain - des17015@byui.edu
+* Nephi Malit - byui@nephi.malit.me
+* Tatenda Felix Mukaro - muk21002@byui.edu
