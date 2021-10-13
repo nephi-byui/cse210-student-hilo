@@ -38,4 +38,4 @@ root                    (project root folder)
 * Alan Crisanto - alanvcrisanto@gmail.com
 * Tianna DeSpain - des17015@byui.edu
 * Nephi Malit - byui@nephi.malit.me
-* Tatenda Felix Mukaro - muk21002@byui.edu
+* Tatenda F. Mukaro - muk21002@byui.edu
